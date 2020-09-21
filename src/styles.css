@@ -1,0 +1,18 @@
+.App {
+  margin: 0;
+}
+
+h1 {
+  color: #0069d9;
+  padding-left: 50px;
+  font-weight: 900;
+  font-family: fantasy;
+}
+button {
+  background-color: #0069d9;
+  color: white;
+}
+
+footer {
+  text-align: center;
+}

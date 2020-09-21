@@ -1,26 +1,59 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./styles.css";
+import "./App.css";
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <div className="text-right p-5">
+        <form id="search-form">
+          <input type="search" id="city-input" placeholder="Enter a City" />
+          <button type="button" className="text-right" id="button-search">
+            <span role="img" aria-label="looking-glass">
+              {" "}
+              🔍{" "}
+            </span>{" "}
+            Search City
+          </button>
+        </form>
+      </div>
+
+      <div className="container">
+        <div className="border p-5" id="sky">
+          <h1 id="city">New York</h1>
+          <span className="Today" role="img">
+            Today{" "}
+            <span role="img" aria-label="looking-glass">
+              {" "}
+              ☀️{" "}
+            </span>
+            <span id="temperature"> 71 </span>
+            <a href="#" id="celsius-link">
+              {" "}
+              °C{" "}
+            </a>
+            |
+            <a href="#" id="fahrenheit-link">
+              °F{" "}
+            </a>
+          </span>
+
+          <div className="date">
+            <div className="text-right" id="day">
+              <h3>Wednesday July 1, 2020</h3>
+            </div>
+          </div>
+        </div>
+        <footer>
+          <a
+            href="https://github.com/SAC-CS112-Selvidge-Natasha/my-Weather-project"
+            target="_blank"
+            className="my-git"
+          >
+            Open source code by Natasha Selvidge
+          </a>
+        </footer>
+      </div>
     </div>
   );
 }
-
-export default App;

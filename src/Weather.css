@@ -1,0 +1,82 @@
+.sky {
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+  max-width: 800px;
+  margin: 0 auto;
+  border: 1px solid #dadde1;
+  border-radius: 10px;
+  background-image: linear-gradient(
+    -225deg,
+    #5d9fff 0%,
+    #b8dcff 48%,
+    #6bbbff 100%
+  );
+}
+
+.Today {
+  padding-left: 50px;
+  font-family: "Lucida Sans";
+  font-size: 30px;
+}
+button {
+  margin: 20px auto;
+  color: #0069d9;
+  font-size: 20px;
+
+  border: 1px solid #0069d9;
+  border-radius: 0.5px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+  transition: all 200ms ease-in-out;
+  background-image: linear-gradient(
+    -225deg,
+    #5d9fff 0%,
+    #b8dcff 48%,
+    #6bbbff 100%
+  );
+}
+button :hover {
+  cursor: pointer;
+  opacity: 0.2;
+}
+
+.border {
+  color: #0069d9;
+  font-weight: bold;
+}
+.date {
+  padding-right: 50px;
+}
+.celsius,
+.fahrenheit {
+  font-size: 20px;
+  position: relative;
+  bottom: 15px;
+  font-weight: 900;
+}
+.search-form {
+  position: relative;
+  left: -110px;
+  top: 45px;
+}
+.search-form :hover {
+  opacity: 0.7;
+}
+.button-search {
+  width: 10%;
+  border-radius: 2px;
+}
+.temperature {
+  font-size: 40px;
+}
+.Layer_1 {
+  padding-left: -100px;
+
+  width: 400px;
+  height: 200px;
+}
+
+.mygit {
+  padding-left: 320px;
+  font-family: fantasy;
+  color: black;
+  font-size: 18px;
+}
