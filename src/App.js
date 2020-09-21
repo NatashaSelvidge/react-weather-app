@@ -1,6 +1,7 @@
 import React from "react";
 import "./styles.css";
-import "./App.css";
+
+import "./weather.css";
 
 export default function App() {
   return (
@@ -28,12 +29,12 @@ export default function App() {
               ☀️{" "}
             </span>
             <span id="temperature"> 71 </span>
-            <a href="#" id="celsius-link">
+            <a href="/" id="celsius-link">
               {" "}
               °C{" "}
             </a>
             |
-            <a href="#" id="fahrenheit-link">
+            <a href="/" id="fahrenheit-link">
               °F{" "}
             </a>
           </span>
@@ -47,7 +48,7 @@ export default function App() {
         <footer>
           <a
             href="https://github.com/SAC-CS112-Selvidge-Natasha/my-Weather-project"
-            target="_blank"
+            rel="noopener norefferrer"
             className="my-git"
           >
             Open source code by Natasha Selvidge

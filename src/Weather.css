@@ -1,4 +1,4 @@
-.sky {
+div#sky.border.p-5 {
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
   max-width: 800px;
   margin: 0 auto;
@@ -12,12 +12,12 @@
   );
 }
 
-.Today {
+span.Today {
   padding-left: 50px;
   font-family: "Lucida Sans";
   font-size: 30px;
 }
-button {
+button#button-search {
   margin: 20px auto;
   color: #0069d9;
   font-size: 20px;
@@ -33,50 +33,44 @@ button {
     #6bbbff 100%
   );
 }
-button :hover {
+button#button-search:hover {
   cursor: pointer;
   opacity: 0.2;
 }
 
-.border {
+div#sky.border.p-5 {
   color: #0069d9;
   font-weight: bold;
 }
-.date {
-  padding-right: 50px;
+div.date {
+  padding-left: 20px;
 }
-.celsius,
-.fahrenheit {
+a#celsius-link,
+a#fahrenheit-link {
   font-size: 20px;
   position: relative;
   bottom: 15px;
   font-weight: 900;
+  color: #0069d9;
 }
-.search-form {
+form#search-form {
   position: relative;
-  left: -110px;
-  top: 45px;
+  left: 800px;
+  top: 20px;
 }
-.search-form :hover {
+form#search-form :hover {
   opacity: 0.7;
 }
-.button-search {
-  width: 10%;
+button#button-search.text-right {
+  width: 11%;
   border-radius: 2px;
 }
-.temperature {
+span#temperature {
   font-size: 40px;
 }
-.Layer_1 {
-  padding-left: -100px;
 
-  width: 400px;
-  height: 200px;
-}
-
-.mygit {
-  padding-left: 320px;
-  font-family: fantasy;
-  color: black;
+a.my-git {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #6bbbff;
   font-size: 18px;
 }
