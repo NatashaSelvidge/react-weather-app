@@ -1,62 +1,64 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 import "./Weather.css";
-import "./styles.css";
 
 export default function Weather() {
-  let weatherData = {
-    city: "Newport",
-    temperature: "70",
-    date: "Wednesday July 1, 2020",
-    emoji: "☀️",
-  };
-  return (
-    <div className="Weather">
-      <div className="text-right p-5">
-        <form className="search-form">
-          <input
-            type="search"
-            className="city-input"
-            placeholder="Enter a City"
-          />
-          <button type="button" className="text-right button-search">
-            <span role="img" aria-label="looking-glass">
-              🔍
-            </span>
-            Search
-          </button>
-        </form>
-      </div>
+  const [weatherData, setWeatherData] = useState({ ready: false });
+  function handleResponse(response) {
+    setWeatherData({
+      ready: true,
+      temperature: response.data.main.temp,
+      city: response.data.name,
+      date: "Wednesday July 1, 2020",
+      iconUrl: "https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png",
+    });
+  }
 
-      <div className="container">
-        <div className="border p-5 sky">
+  if (weatherData.ready) {
+    return (
+      <div className="Weather">
+        <div className="container">
+          <form>
+            <div className="row">
+              <div className="col-9">
+                <input
+                  type="search"
+                  placeholder="Enter a City.."
+                  className="form-control"
+                  autoFocus="none"
+                />
+              </div>
+              <div className="col-3">
+                <input
+                  type="submit"
+                  value="Search"
+                  className="btn btn-primary w-100"
+                />
+              </div>
+            </div>
+          </form>
           <h1>{weatherData.city}</h1>
-          <span className="Today">
-            Today
-            <span role="img" aria-label="sun-emoji">
-              {weatherData.emoji}
-            </span>
-            <span className="temperature"> {weatherData.temperature} </span>
-            <span className="celsius"> °C </span>|
-            <span className="fahrenheit"> °F </span>
+          <img src={weatherData.iconUrl} alt="current weather" />
+          <span className="temperature">
+            {" "}
+            {Math.round(weatherData.temperature)}{" "}
           </span>
-
+          <span className="celsius"> °C | </span>
+          <span className="fahrenheit"> °F </span>
           <div className="date">
             <div className="text-right day">
               <h3>{weatherData.date}</h3>
             </div>
           </div>
         </div>
-        <footer>
-          <a
-            href="https://github.com/SAC-CS112-Selvidge-Natasha/my-Weather-project"
-            target="_blank"
-            className="my-git"
-            rel="noopener noreferrer"
-          >
-            Open source code by Natasha Selvidge
-          </a>
-        </footer>
       </div>
-    </div>
-  );
+    );
+  } else {
+    const apiKey = "4d7c857c401c2b610599aeeadfa8b7de";
+    let city = "Irvine";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
+
+    axios.get(apiUrl).then(handleResponse);
+    return "Loading...";
+  }
 }
