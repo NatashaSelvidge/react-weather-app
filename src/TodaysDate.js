@@ -37,7 +37,6 @@ export default function TodaysDate(props) {
   }
   let month = months[props.date.getMonth()];
   let date = props.date.getDate();
-  let year = props.date.getYear();
 
   return (
     <div>
