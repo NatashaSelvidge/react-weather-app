@@ -1,32 +1,49 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./Weather.css";
-import TodaysDate from "./TodaysDate";
+
+import WeatherInfo from "./WeatherInfo";
 
 export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
+  const [city, setCity] = useState(props.defaultCity);
   function handleResponse(response) {
     setWeatherData({
       ready: true,
       temperature: response.data.main.temp,
       city: response.data.name,
+
       date: new Date(response.data.dt * 1000),
       iconUrl: "https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png",
     });
   }
+  function search() {
+    const apiKey = "4d7c857c401c2b610599aeeadfa8b7de";
 
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
+
+    axios.get(apiUrl).then(handleResponse);
+  }
+  function handleSubmit(event) {
+    event.preventDefault();
+    search(city);
+  }
+  function cityChange(event) {
+    setCity(event.target.value);
+  }
   if (weatherData.ready) {
     return (
       <div className="Weather">
         <div className="container">
-          <form>
+          <form onSubmit={handleSubmit}>
             <div className="row">
               <div className="col-9">
                 <input
                   type="search"
                   placeholder="Enter a City.."
                   className="form-control"
-                  autoFocus="none"
+                  autoFocus="on"
+                  onChange={cityChange}
                 />
               </div>
               <div className="col-3">
@@ -38,30 +55,13 @@ export default function Weather(props) {
               </div>
             </div>
           </form>
-          <h1>{weatherData.city}</h1>
-          <img src={weatherData.iconUrl} alt="current weather" />
-          <span className="temperature">
-            {" "}
-            {Math.round(weatherData.temperature)}{" "}
-          </span>
-          <span className="celsius"> °C | </span>
-          <span className="fahrenheit"> °F </span>
-          <div className="date">
-            <div className="text-right day">
-              <h3>
-                <TodaysDate date={weatherData.date} />
-              </h3>
-            </div>
-          </div>
+
+          <WeatherInfo data={weatherData} />
         </div>
       </div>
     );
   } else {
-    const apiKey = "4d7c857c401c2b610599aeeadfa8b7de";
-    let city = "Irvine";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=${apiKey}&units=imperial`;
-
-    axios.get(apiUrl).then(handleResponse);
+    search();
     return "Loading...";
   }
 }
