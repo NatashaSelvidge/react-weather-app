@@ -42,8 +42,7 @@ div#sky.border.p-5 {
 div.date {
   padding-left: 20px;
 }
-span.celsius,
-span.fahrenheit {
+unit {
   font-size: 20px;
   font-weight: 400;
   position: relative;
