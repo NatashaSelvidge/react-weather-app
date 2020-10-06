@@ -9,7 +9,7 @@ export default function App() {
       <Weather defaultCity="New York" defaultCountry="US" />
       <footer>
         <a
-          href="https://github.com/SAC-CS112-Selvidge-Natasha/react-weather-app"
+          href="https://github.com/NatashaSelvidge/react-weather-app"
           target="_blank"
           className="my-git"
           rel="noopener noreferrer"
