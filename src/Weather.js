@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./Weather.css";
+import TodaysDate from "./TodaysDate";
 
 export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
@@ -9,7 +10,7 @@ export default function Weather(props) {
       ready: true,
       temperature: response.data.main.temp,
       city: response.data.name,
-      date: "Wednesday July 1, 2020",
+      date: new Date(response.data.dt * 1000),
       iconUrl: "https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png",
     });
   }
@@ -47,7 +48,9 @@ export default function Weather(props) {
           <span className="fahrenheit"> °F </span>
           <div className="date">
             <div className="text-right day">
-              <h3>{weatherData.date}</h3>
+              <h3>
+                <TodaysDate date={weatherData.date} />
+              </h3>
             </div>
           </div>
         </div>
