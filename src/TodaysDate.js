@@ -29,7 +29,7 @@ export default function TodaysDate(props) {
   let day = days[props.date.getDay()];
   let hours = props.date.getHours();
   if (hours < 10) {
-    hours = `0 ${hours}`;
+    hours = `0${hours}`;
   }
   let minutes = props.date.getMinutes();
   if (minutes < 10) {
